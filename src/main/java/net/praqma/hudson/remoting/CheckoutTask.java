@@ -42,7 +42,9 @@ public class CheckoutTask implements FileCallable<EstablishResult> {
     private String buildProject;
     private final Stream targetStream;
     private final BuildListener listener;
-    private final Integer jobNumber;
+    
+    @Deprecated
+    private transient Integer jobNumber;
     /**
      * Determines whether to swipe the view or not.
      *
@@ -52,9 +54,8 @@ public class CheckoutTask implements FileCallable<EstablishResult> {
     private boolean any = false;
     private static final Logger logger = Logger.getLogger(CheckoutTask.class.getName());
 
-    public CheckoutTask(BuildListener listener, String jobname, Integer jobNumber, Stream targetStream, String loadModule, Baseline baseline, String buildProject, boolean any, boolean swipe) {
+    public CheckoutTask(BuildListener listener, String jobname, Stream targetStream, String loadModule, Baseline baseline, String buildProject, boolean any, boolean swipe) {
         this.jobname = jobname;
-        this.jobNumber = jobNumber;
         this.targetStream = targetStream;
         this.loadModule = loadModule;
         this.bl = baseline;

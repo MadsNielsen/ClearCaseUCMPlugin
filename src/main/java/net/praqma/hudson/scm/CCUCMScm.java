@@ -462,7 +462,7 @@ public class CCUCMScm extends SCM {
         PrintStream consoleOutput = listener.getLogger();
         EstablishResult er = null;
         
-        CheckoutTask ct = new CheckoutTask(listener, jobName, build.getNumber(), action.getStream(), loadModule, action.getBaseline(), buildProject, (_getPlevel() == null), action.doRemoveViewPrivateFiles());
+        CheckoutTask ct = new CheckoutTask(listener, jobName, action.getStream(), loadModule, action.getBaseline(), buildProject, (_getPlevel() == null), action.doRemoveViewPrivateFiles());
         er = workspace.act(ct);
 
         String changelog = "";
@@ -694,8 +694,6 @@ public class CCUCMScm extends SCM {
         workspace.act(new RemoteClearCaseCheck());
 
         jobName = project.getDisplayName().replace(' ', '_');
-        jobNumber = project.getNextBuildNumber();
-
         PollingResult p = PollingResult.NO_CHANGES;
 
         /*
