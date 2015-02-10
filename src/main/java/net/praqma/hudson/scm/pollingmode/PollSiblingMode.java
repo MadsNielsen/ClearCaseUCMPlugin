@@ -20,6 +20,7 @@ public class PollSiblingMode extends PollingMode implements BaselineCreationEnab
     
     private boolean useHyperLinkForPolling = false;
     private boolean createBaseline = false;
+    private boolean acceptOverride = false;
     
     
     @DataBoundConstructor
@@ -61,6 +62,21 @@ public class PollSiblingMode extends PollingMode implements BaselineCreationEnab
     @DataBoundSetter
     public void setCreateBaseline(boolean createBaseline) {
         this.createBaseline = createBaseline;
+    }
+
+    /**
+     * @return the acceptOverride
+     */
+    public boolean isAcceptOverride() {
+        return acceptOverride;
+    }
+
+    /**
+     * @param acceptOverride the acceptOverride to set
+     */
+    @DataBoundSetter
+    public void setAcceptOverride(boolean acceptOverride) {
+        this.acceptOverride = acceptOverride;
     }
     
     @Extension    
