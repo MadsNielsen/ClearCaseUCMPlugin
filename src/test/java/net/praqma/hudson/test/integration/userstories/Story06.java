@@ -3,10 +3,12 @@ package net.praqma.hudson.test.integration.userstories;
 import net.praqma.clearcase.test.annotations.ClearCaseUniqueVobName;
 import net.praqma.clearcase.ucm.entities.Stream;
 import net.praqma.util.test.junit.TestDescription;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class Story06 extends Story06Base {
-
 
     @Test
     @ClearCaseUniqueVobName(name = "dip1")
