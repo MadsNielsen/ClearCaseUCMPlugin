@@ -97,9 +97,9 @@ public class BaselinesFound extends BaseTestClass {
         SystemValidator validator = new SystemValidator(build)
             .validateBuild(Result.SUCCESS)
             .validateBuildView()
-            .validateCreatedBaseline(true)
+            .validateCreatedBaseline(true, true)
             .validateBuiltBaselineIsInFoundation(true)                
-            .validateBuiltBaseline(PromotionLevel.INITIAL, baseline, true)
+            .validateBuiltBaseline(PromotionLevel.INITIAL, baseline, false)
             .validate();
     }
     
