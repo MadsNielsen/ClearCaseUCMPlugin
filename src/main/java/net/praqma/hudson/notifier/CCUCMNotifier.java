@@ -276,7 +276,8 @@ public class CCUCMNotifier extends Notifier {
                     pstate.setWorkspace( workspace );
                     NameTemplate.validateTemplates( pstate, build.getWorkspace() );
                     String name = NameTemplate.parseTemplate( pstate.getNameTemplate(), pstate, build.getWorkspace() );
-                    targetbaseline = RemoteUtil.createRemoteBaseline( currentWorkspace, name, pstate.getStream(), pstate.getViewPath() );           
+                    targetbaseline = RemoteUtil.createRemoteBaseline(currentWorkspace, name, pstate.getBaseline().getComponent(), pstate.getViewPath());
+                    //targetbaseline = RemoteUtil.createRemoteBaseline( currentWorkspace, name, pstate.getStream(), pstate.getViewPath() );           
                     action.setCreatedBaseline( targetbaseline );                
                 }
                 
