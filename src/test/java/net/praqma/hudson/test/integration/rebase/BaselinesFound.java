@@ -86,6 +86,23 @@ public class BaselinesFound extends BaseTestClass {
             .validateBuiltBaseline(PromotionLevel.INITIAL, baseline, false)
             .validate();
     }
+
+    @Test
+    @ClearCaseUniqueVobName(name = "rebase-mkbl-rec")
+    @TestDescription(title = "Rebase polling, succes", text = "rebase baseline available, create a baseline and recommend it")
+    public void testBasicMkBlRecommend() throws Exception {
+        Baseline baseline = getNewBaseline();
+        
+        AbstractBuild<?, ?> build = initiateBuild("rebase-mkbl-rec-" + ccenv.getUniqueName(), true, false, false, false, true);
+        SystemValidator validator = new SystemValidator(build)
+            .validateBuild(Result.SUCCESS)
+            .validateBuildView()
+            .validateCreatedBaseline(true)
+            .validateBuiltBaselineIsInFoundation(true)                
+            .validateBuiltBaseline(PromotionLevel.INITIAL, baseline, true)
+            .validate();
+    }
+    
     
     protected Baseline getNewBaseline() throws ClearCaseException {
         /**/
