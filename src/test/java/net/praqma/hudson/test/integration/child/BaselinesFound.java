@@ -27,7 +27,6 @@ import net.praqma.hudson.scm.pollingmode.PollChildMode;
 import org.junit.FixMethodOrder;
 import org.junit.runners.MethodSorters;
 
-@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class BaselinesFound extends BaseTestClass {
 
     @Rule
@@ -58,8 +57,7 @@ public class BaselinesFound extends BaseTestClass {
     @Test
     @ClearCaseUniqueVobName(name = "rec-child")
     @TestDescription(title = "Child polling", text = "baseline available", configurations = {"Recommended = true"})
-    public void testRecommended() throws Exception {
-        System.out.println("2");
+    public void testRecommended() throws Exception {        
         Baseline baseline = getNewBaseline();
 
         AbstractBuild<?, ?> build = initiateBuild("rec-" + ccenv.getUniqueName(), true, false, false, false);
@@ -76,8 +74,7 @@ public class BaselinesFound extends BaseTestClass {
     @Test
     @ClearCaseUniqueVobName(name = "description-child")
     @TestDescription(title = "Child polling", text = "baseline available", configurations = {"Set description = true"})
-    public void testDescription() throws Exception {
-        System.out.println("3");
+    public void testDescription() throws Exception {        
         Baseline baseline = getNewBaseline();
 
         AbstractBuild<?, ?> build = initiateBuild("description-" + ccenv.getUniqueName(), false, false, true, false);
@@ -94,8 +91,7 @@ public class BaselinesFound extends BaseTestClass {
     @Test
     @ClearCaseUniqueVobName(name = "tagged-child")
     @TestDescription(title = "Child polling", text = "baseline available", configurations = {"Set tag = true"})
-    public void testTagged() throws Exception {
-        System.out.println("4");
+    public void testTagged() throws Exception {        
         jenkins.makeTagType(ccenv.getPVob());
         Baseline baseline = getNewBaseline();
 
