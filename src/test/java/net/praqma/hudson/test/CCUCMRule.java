@@ -362,7 +362,7 @@ public class CCUCMRule extends JenkinsRule {
 
         AbstractBuild<?,?> build = null;
 		try {
-			 build = project.scheduleBuild2(1, new Cause.UserIdCause(), action ).get();
+			 build = project.scheduleBuild2(10, new Cause.UserIdCause(), action ).get();
 		} catch( Exception e ) {
             if(!fail) {
                 logger.log(Level.SEVERE, "Build failed...it should not!", e);

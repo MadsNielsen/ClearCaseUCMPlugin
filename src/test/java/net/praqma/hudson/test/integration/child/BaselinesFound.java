@@ -24,8 +24,6 @@ import net.praqma.clearcase.test.annotations.ClearCaseUniqueVobName;
 import net.praqma.clearcase.test.junit.ClearCaseRule;
 import net.praqma.hudson.scm.pollingmode.PollChildMode;
 
-import org.junit.FixMethodOrder;
-import org.junit.runners.MethodSorters;
 
 public class BaselinesFound extends BaseTestClass {
 
@@ -62,12 +60,11 @@ public class BaselinesFound extends BaseTestClass {
 
         AbstractBuild<?, ?> build = initiateBuild("rec-" + ccenv.getUniqueName(), true, false, false, false);
         
-        //Question: Why do we not validate that the BUILT baseline in promoted?? 
         SystemValidator validator = new SystemValidator(build)
                 .validateBuild(Result.SUCCESS)
                 .validateBuildView()
                 .validateBuiltBaseline(PromotionLevel.BUILT, baseline, false)
-                .validateCreatedBaseline(true)
+                .validateCreatedBaseline(true, true)
                 .validate();
     }
 
